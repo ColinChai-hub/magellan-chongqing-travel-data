@@ -38,7 +38,16 @@ export default {
     if(host==='magellanchongqing.com' && path==='/' && request.method==='GET') {
       const origin=await fetch(request);
       if(!origin.ok || !/text\/html/i.test(origin.headers.get('content-type')||'')) return origin;
-      return new HTMLRewriter().on('img',{element(element){p2RewriteImageElement(element);}}).on('head',{element(element){element.prepend('<link rel="preload" as="image" imagesrcset="/assets/img/chaotianmen-m.jpg 960w, /assets/img/chaotianmen.jpg 1600w" imagesizes="100vw" fetchpriority="high">',{html:true});}}).on('footer',{
+      return new HTMLRewriter().on('img',{element(element){
+  p2RewriteImageElement(element);
+  const src=element.getAttribute('src')||'';
+  const data=p2ImageData(src);
+  const filename=data?.path?.split('/').pop();
+  if(data?.size && P2_VERIFIED_MOBILE.has(filename) && element.getAttribute('loading')==='lazy' && !element.getAttribute('srcset')){
+    element.setAttribute('srcset',data.path.replace(/\.jpg$/i,'-m.jpg')+' 960w, '+data.path+' '+data.size[0]+'w');
+    element.setAttribute('sizes','(max-width: 700px) calc(100vw - 40px), (max-width: 1100px) 48vw, 33vw');
+  }
+}}).on('head',{element(element){element.prepend('<link rel="preload" as="image" imagesrcset="/assets/img/chaotianmen-m.jpg 960w, /assets/img/chaotianmen.jpg 1600w" imagesizes="100vw" fetchpriority="high">',{html:true});}}).on('footer',{
         element(element) {
           element.append('<div class="fine" style="margin-top:12px"><a href="/open-data/">Open Travel Data (CSV &amp; JSON)</a> — source-linked Chongqing destination and visitor reference datasets.</div>',{html:true});
         }
