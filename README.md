@@ -69,6 +69,8 @@ Source websites, trademarks, and any external content retain their own rights. V
 
 **Indexing and monitoring:** See the [SEO/GEO measurement plan](docs/seo-geo-monitoring.md) and [Cloudflare integration/rollback notes](docs/website-integration.md).
 
+**P2 technical performance and entity release:** See the [P2 full-site acceptance report](docs/p2-seo-geo-implementation-2026-11-15.md) for image-dimension fixes, mobile Lighthouse baseline/retests, structured-data identity, 60-page regression and remaining LCP/RUM/real-source evidence work.
+
 **P1 site optimization release:** See the [live deployment and 60-page acceptance report](docs/p1-seo-geo-implementation-2026-11-15.md) for internal-link targets, official reference sources, B2B/B2C quotation paths, the weekly P1 audit and rollback instructions. The [public-site audit](.github/workflows/public-site-audit.yml) checks the site and downloads every Monday; indexing and AI citations are not guaranteed.
 
 
