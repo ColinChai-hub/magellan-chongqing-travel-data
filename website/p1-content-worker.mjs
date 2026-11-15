@@ -1,6 +1,64 @@
 // Magellan P1: reversible, scoped supplementary site links and source notes.
 // The production magellan-tours Worker is neither replaced nor edited.
 // Every page not explicitly mapped is forwarded unchanged.
+const ENQUIRY_SECTIONS={
+  "/partner/": {
+    "heading": "Prepare a travel-agency ground-handling enquiry",
+    "intro": "For an agency quotation, share your company and market, expected group size, travel dates and flight information, hotel standard, guide language, dining needs and preferred destinations. Final inclusions and trade terms are confirmed in the written quotation.",
+    "links": [
+      [
+        "/tours/chongqing-group-tours/",
+        "Compare 3–5 day group route examples"
+      ],
+      [
+        "/contact/",
+        "Contact the Chongqing ground-handling team"
+      ]
+    ]
+  },
+  "/tours/chongqing-group-tours/": {
+    "heading": "From sample route to group quotation",
+    "intro": "Our three-to-five-day combinations are illustrative. Provide your agency market, arrival/departure transport, group size, hotel category, guide language and any special requirements for a tailored ground-handling proposal.",
+    "links": [
+      [
+        "/partner/",
+        "Overseas agency cooperation details"
+      ],
+      [
+        "/contact/",
+        "Send your group enquiry"
+      ]
+    ]
+  },
+  "/custom-tour/": {
+    "heading": "What to include in a private-tour request",
+    "intro": "To plan a realistic Chongqing trip, share your travel dates, passenger count, age or mobility considerations, hotel area, pace and preferred attractions. We will confirm specific services and terms before any booking.",
+    "links": [
+      [
+        "/tours/chongqing-3-day-private-tour/",
+        "Explore a flexible three-day plan"
+      ],
+      [
+        "/contact/",
+        "Contact the private-tour team"
+      ]
+    ]
+  },
+  "/tours/chongqing-3-day-private-tour/": {
+    "heading": "Make this sample itinerary your own",
+    "intro": "The three-day route is a planning example, not a confirmed departure. Tell us your dates, hotel location, travel pace and whether you prefer Wulong nature or Dazu cultural heritage.",
+    "links": [
+      [
+        "/custom-tour/",
+        "See private-tour customization options"
+      ],
+      [
+        "/contact/",
+        "Ask about a tailored itinerary"
+      ]
+    ]
+  }
+};
 const LINK_SECTIONS={
   "/guides/chongqing-travel-guide/": {
     "heading": "Go deeper on Chongqing's places",
@@ -337,8 +395,8 @@ export default {
   async fetch(request) {
     const url=new URL(request.url);
     if(request.method!=="GET"||url.hostname!=="magellanchongqing.com")return fetch(request);
-    const path=url.pathname, links=LINK_SECTIONS[path], sources=SOURCE_SECTIONS[path];
-    if(!links && !sources)return fetch(request);
+    const path=url.pathname, links=LINK_SECTIONS[path], sources=SOURCE_SECTIONS[path], enquiry=ENQUIRY_SECTIONS[path];
+    if(!links && !sources && !enquiry)return fetch(request);
     const upstream=await fetch(request);
     if(!upstream.ok||!/(?:text\/html)/i.test(upstream.headers.get("content-type")||""))return upstream;
     const original=await upstream.text(), headers=new Headers(upstream.headers);
@@ -349,6 +407,7 @@ export default {
     }
     const blocks=[];
     if(links && !original.includes('id="magellan-p1-related"'))blocks.push(renderLinks(links));
+    if(enquiry && !original.includes('id="magellan-p1-enquiry"'))blocks.push(renderEnquiry(enquiry));
     if(sources && !original.includes('id="magellan-p1-sources"'))blocks.push(renderSources(sources));
     if(!blocks.length)return new Response(original,{status:upstream.status,headers});
     const target=original.includes('<div class="ctaband">')?'<div class="ctaband">':'</main>';
@@ -365,4 +424,9 @@ function renderLinks(data){
 function renderSources(data){
   const items=data.items.map(([url,label,note])=>'<li style="margin:0 0 .5rem"><a href="'+escapeText(url)+'" rel="noopener noreferrer" target="_blank">'+escapeText(label)+'</a> — '+escapeText(note)+'</li>').join('');
   return '<aside id="magellan-p1-sources" aria-label="Source references" style="margin:2rem 0;padding:1.25rem 1.5rem;border:1px solid #d8e2db;border-radius:8px;background:#f8faf8"><h2 style="margin:0 0 .6rem;font-size:1.25rem">Official references and editorial notes</h2><p>References checked on 15 November 2026 by Magellan Chongqing Tours. These sources support the listed heritage, place or planning context; they do not verify every price, timetable, opening hour or personal observation in this independent guide.</p><ul style="margin:.75rem 0;padding-left:1.5rem">'+items+'</ul><p style="font-size:.92rem">Check current details with the official attraction or transport operator before booking.</p></aside>';
+}
+
+function renderEnquiry(data){
+  const nav=data.links.map(([href,label])=>'<li style="margin-bottom:.45rem"><a href="'+escapeText(href)+'">'+escapeText(label)+'</a></li>').join('');
+  return '<section id="magellan-p1-enquiry" aria-label="Tour enquiry planning" style="margin:2rem 0;padding:1.25rem 1.5rem;border-left:4px solid #0b5941;background:#f5f8f6"><h2 style="margin:0 0 .6rem;font-size:1.25rem">'+escapeText(data.heading)+'</h2><p>'+escapeText(data.intro)+'</p><ul style="padding-left:1.5rem;margin:.75rem 0 0">'+nav+'</ul></section>';
 }
