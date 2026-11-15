@@ -112,8 +112,12 @@ def verify_page(url):
             raise AssertionError("WebPage.isPartOf not linked")
 
     if path == "/":
-        if "Open Travel Data (CSV" not in source or 'imagesrcset="/assets/img/chaotianmen-m.jpg' not in source:
-            raise AssertionError("Homepage entry/preload missing")
+        if "Open Travel Data (CSV" not in source:
+            raise AssertionError("Homepage Open Data discovery link missing")
+        # The initial image is already in HTML with fetchpriority=high.
+        # The redundant preload previously caused two hero JPEG requests on mobile.
+        if 'imagesrcset="/assets/img/chaotianmen-m.jpg' in source:
+            raise AssertionError("English homepage redundant hero preload returned")
     if path in ("/zh-cn/", "/zh-tw/") and 'imagesrcset="/assets/img/chaotianmen-m.jpg' not in source:
         raise AssertionError("Localized homepage hero preload missing")
     if path == "/guides/chongqing-240-hour-visa-free-transit-guide/":
