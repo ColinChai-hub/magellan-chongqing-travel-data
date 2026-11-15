@@ -228,6 +228,12 @@ function p2OptimizeMetadata(html,path){
       const j=JSON.parse(raw),nodes=Array.isArray(j["@graph"])?j["@graph"]:[j];
       if(!nodes.some(n=>n?.["@id"]===P2_ORG_ID))return whole;
       let dirty=false;
+      // Localized origin HTML contains WebPage and TravelAgency, but omits WebSite.
+      // Supply the already-used canonical WebSite identity instead of a new entity.
+      if(Array.isArray(j["@graph"]) && !nodes.some(n=>n?.["@id"]===P2_SITE_ID)){
+        nodes.splice(1,0,{"@type":"WebSite","@id":P2_SITE_ID,"url":"https://magellanchongqing.com/","name":"Magellan Chongqing Tours","publisher":{"@id":P2_ORG_ID}});
+        dirty=true;
+      }
       for(const n of nodes){
         if(n?.["@id"]===P2_ORG_ID && n["@type"]==="TravelAgency"){
           if(!n.contactPoint&&n.email){n.contactPoint={"@type":"ContactPoint","contactType":"travel enquiries","email":n.email,"url":"https://magellanchongqing.com/contact/"};dirty=true;}
