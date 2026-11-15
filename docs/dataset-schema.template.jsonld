@@ -7,7 +7,8 @@
   "url": "https://magellanchongqing.com/open-data/",
   "sameAs": "https://github.com/ColinChai-hub/magellan-chongqing-travel-data",
   "creator": {
-    "@type": "Organization",
+    "@type": "TravelAgency",
+    "@id": "https://magellanchongqing.com/#organization",
     "name": "Magellan Chongqing Tours",
     "url": "https://magellanchongqing.com/"
   },
@@ -53,5 +54,12 @@
       "encodingFormat": "application/json",
       "contentUrl": "https://raw.githubusercontent.com/ColinChai-hub/magellan-chongqing-travel-data/main/data/travel-faq.json"
     }
-  ]
+  ],
+  "publisher": {
+    "@id": "https://magellanchongqing.com/#organization"
+  },
+  "spatialCoverage": {
+    "@type": "Place",
+    "name": "Chongqing, China"
+  }
 }
