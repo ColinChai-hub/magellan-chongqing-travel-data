@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "Please cite this dataset if you reuse it."
+title: "Magellan Chongqing Open Travel Data"
+type: dataset
+authors:
+  - name: "Magellan Chongqing Tours"
+version: 0.1.0
+date-released: '2026-11-14'
+url: "https://magellanchongqing.com/"
+license: CC-BY-4.0

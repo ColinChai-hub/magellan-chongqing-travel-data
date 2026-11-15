@@ -1,0 +1,157 @@
+[
+  {
+    "id": "city_highlights_1d",
+    "title": "Chongqing city highlights (1 day)",
+    "duration_days": 1,
+    "audience": "First-time independent travelers",
+    "pace": "moderate",
+    "days": [
+      {
+        "day": 1,
+        "stops": [
+          "liziba",
+          "ciqikou",
+          "hongyadong"
+        ],
+        "notes": "A suggested order, not a timed itinerary. Check current transport and allow for hilly walking."
+      }
+    ],
+    "planning_cautions": [
+      "Visit duration and traffic vary.",
+      "The order is flexible and not optimized by live routing."
+    ],
+    "is_commercial_tour": false
+  },
+  {
+    "id": "city_slow_2d",
+    "title": "Chongqing at a gentler pace (2 days)",
+    "duration_days": 2,
+    "audience": "Travelers preferring fewer stops per day",
+    "pace": "relaxed",
+    "days": [
+      {
+        "day": 1,
+        "stops": [
+          "liziba",
+          "hongyadong"
+        ],
+        "notes": "Keep time for rest and transfer between neighborhoods."
+      },
+      {
+        "day": 2,
+        "stops": [
+          "ciqikou",
+          "danzishi"
+        ],
+        "notes": "Two separate areas; check transport and walking requirements."
+      }
+    ],
+    "planning_cautions": [
+      "Not a guarantee of step-free access.",
+      "Verify current attraction opening arrangements."
+    ],
+    "is_commercial_tour": false
+  },
+  {
+    "id": "wulong_nature_2d",
+    "title": "Wulong karst introduction (2 days)",
+    "duration_days": 2,
+    "audience": "Nature and landscape travelers",
+    "pace": "moderate",
+    "days": [
+      {
+        "day": 1,
+        "stops": [
+          "three_natural_bridges"
+        ],
+        "notes": "Dedicate most of the day to travel and the scenic area."
+      },
+      {
+        "day": 2,
+        "stops": [
+          "fairy_mountain",
+          "furong_cave"
+        ],
+        "notes": "Choose one of these if transfers or conditions make both impractical."
+      }
+    ],
+    "planning_cautions": [
+      "Requires separate travel planning from central Chongqing.",
+      "Scenic area transfers, weather, and opening arrangements must be checked."
+    ],
+    "is_commercial_tour": false
+  },
+  {
+    "id": "dazu_heritage_2d",
+    "title": "Dazu heritage focus (2 days)",
+    "duration_days": 2,
+    "audience": "Art, history and cultural heritage travelers",
+    "pace": "relaxed",
+    "days": [
+      {
+        "day": 1,
+        "stops": [
+          "baodingshan",
+          "dazu_museum"
+        ],
+        "notes": "Allow substantial time for the major carving site."
+      },
+      {
+        "day": 2,
+        "stops": [
+          "beishan"
+        ],
+        "notes": "Check access and arrange local transfer in advance."
+      }
+    ],
+    "planning_cautions": [
+      "Carving clusters have different locations.",
+      "Check accessibility, entry and transport before travel."
+    ],
+    "is_commercial_tour": false
+  },
+  {
+    "id": "chongqing_world_heritage_4d",
+    "title": "Chongqing UNESCO themes (4 days)",
+    "duration_days": 4,
+    "audience": "Travelers interested in cultural and natural heritage",
+    "pace": "flexible",
+    "days": [
+      {
+        "day": 1,
+        "stops": [
+          "hongyadong",
+          "liziba"
+        ],
+        "notes": "Urban orientation day."
+      },
+      {
+        "day": 2,
+        "stops": [
+          "three_natural_bridges"
+        ],
+        "notes": "Plan travel to Wulong separately."
+      },
+      {
+        "day": 3,
+        "stops": [
+          "fairy_mountain",
+          "furong_cave"
+        ],
+        "notes": "Choose based on weather and practical transfers."
+      },
+      {
+        "day": 4,
+        "stops": [
+          "baodingshan"
+        ],
+        "notes": "Travel to Dazu may require significant transfer time; add a night if needed."
+      }
+    ],
+    "planning_cautions": [
+      "Illustrative itinerary, not a verified optimal route.",
+      "Transport between Wulong and Dazu needs separate planning and may justify extra days."
+    ],
+    "is_commercial_tour": false
+  }
+]

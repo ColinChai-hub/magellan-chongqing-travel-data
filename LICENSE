@@ -1,0 +1,12 @@
+# License and third-party rights
+
+Copyright (c) 2026 Magellan Chongqing Tours.
+
+Unless explicitly stated otherwise, original textual descriptions, original editorial notes, and original structured dataset contents in this repository are licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0):
+https://creativecommons.org/licenses/by/4.0/legalcode
+
+You are free to share and adapt the licensed material for any purpose, including commercially, provided you give appropriate credit, indicate changes, and link to the license. No warranties are given.
+
+**Important exclusions:** This license does not relicense third-party material at linked source websites, official names or logos, trademarks, or rights held by others. URLs and short factual statements are provided for reference; follow each source's own terms. No photographs, maps, official texts, or external datasets have been copied into this repository.
+
+The basic validation script is made available under the MIT License (see scripts/LICENSE).

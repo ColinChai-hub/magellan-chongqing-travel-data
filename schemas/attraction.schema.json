@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Chongqing attraction",
+  "type": "object",
+  "required": [
+    "id",
+    "name_en",
+    "name_zh",
+    "district",
+    "category",
+    "heritage_status",
+    "summary",
+    "terrain_and_access_note",
+    "planning_tip",
+    "source_url",
+    "source_title",
+    "last_source_checked",
+    "live_hours_or_prices_included"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name_en": {
+      "type": "string"
+    },
+    "name_zh": {
+      "type": "string"
+    },
+    "district": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "heritage_status": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "terrain_and_access_note": {
+      "type": "string"
+    },
+    "planning_tip": {
+      "type": "string"
+    },
+    "source_url": {
+      "type": "string"
+    },
+    "source_title": {
+      "type": "string"
+    },
+    "last_source_checked": {
+      "type": "string"
+    },
+    "live_hours_or_prices_included": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

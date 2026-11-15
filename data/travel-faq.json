@@ -1,0 +1,86 @@
+[
+  {
+    "id": "official_rail",
+    "question": "Where can I book China train tickets?",
+    "answer": "The official China Railway booking website is 12306.cn. Check its current English portal for schedules, ticket rules and availability.",
+    "source_url": "https://www.12306.cn/en/",
+    "last_source_checked": "2026-11-14"
+  },
+  {
+    "id": "foreign_passport",
+    "question": "Can a foreign traveler book a train with a passport?",
+    "answer": "China Railway provides real-name ticketing guidance for foreign passports. Check the latest rules and the ID accepted by the booking channel before paying.",
+    "source_url": "https://www.12306.cn/en/faq.html?item=1",
+    "last_source_checked": "2026-11-14"
+  },
+  {
+    "id": "unesco_dazu",
+    "question": "Is Dazu a UNESCO World Heritage site?",
+    "answer": "Yes. The Dazu Rock Carvings are on the UNESCO World Heritage List and include several separate carving clusters.",
+    "source_url": "https://whc.unesco.org/en/list/912",
+    "last_source_checked": "2026-11-14"
+  },
+  {
+    "id": "unesco_wulong",
+    "question": "Is Wulong a UNESCO World Heritage site?",
+    "answer": "Wulong Karst is part of the UNESCO-listed South China Karst serial World Heritage property.",
+    "source_url": "https://whc.unesco.org/en/list/1248/",
+    "last_source_checked": "2026-11-14"
+  },
+  {
+    "id": "wulong_daytrip",
+    "question": "Is Wulong inside downtown Chongqing?",
+    "answer": "No. Wulong is a separate district and its scenic areas require regional travel and local transfers.",
+    "source_url": "https://english.cq.gov.cn/aboutchongqing/culture/NaturalHeritage/202606/t20260612_15751145.html",
+    "last_source_checked": "2026-11-14"
+  },
+  {
+    "id": "liziba_rail",
+    "question": "Which line serves Liziba Station?",
+    "answer": "Chongqing Rail Transit Line 2 serves Liziba Station. Confirm the current map and service information before travel.",
+    "source_url": "https://english.cq.gov.cn/specials/explore/PhotoPerfectSpots/202608/t20260810_15912642.html",
+    "last_source_checked": "2026-11-14"
+  },
+  {
+    "id": "steep_terrain",
+    "question": "Does Chongqing have steep streets?",
+    "answer": "Some popular areas include sloping streets, stairs or multiple levels. Check each stop if step-free access is important.",
+    "source_url": "https://english.cq.gov.cn/specials/Eat/NightMarkets/202608/t20260813_15929927.html",
+    "last_source_checked": "2026-11-14"
+  },
+  {
+    "id": "historic_town",
+    "question": "Where can I see a historic town in central Chongqing?",
+    "answer": "Ciqikou Ancient Town in Shapingba District is one option for traditional streets and local culture.",
+    "source_url": "https://english.cq.gov.cn/specials/explore/PhotoPerfectSpots/202608/t20260810_15912574.html",
+    "last_source_checked": "2026-11-14"
+  },
+  {
+    "id": "wulong_caves",
+    "question": "What is Furong Cave?",
+    "answer": "Furong Cave is a limestone cave in the Wulong tourism area. Check current entry, weather and path conditions before visiting.",
+    "source_url": "https://english.cq.gov.cn/specials/explore/ARatedTouristAttractions/202608/t20260818_15948246.html",
+    "last_source_checked": "2026-11-14"
+  },
+  {
+    "id": "dazu_clusters",
+    "question": "Are Baodingshan and Beishan the same place?",
+    "answer": "No. They are distinct carving clusters within the wider Dazu Rock Carvings World Heritage property.",
+    "source_url": "https://whc.unesco.org/en/list/912",
+    "last_source_checked": "2026-11-14"
+  },
+  {
+    "id": "hours",
+    "question": "Does this dataset include live opening hours and prices?",
+    "answer": "No. Hours, prices, closures, tickets and transport schedules can change. Check current operator or official sources before visiting.",
+    "source_url": "https://english.cq.gov.cn/specials/explore/",
+    "last_source_checked": "2026-11-14"
+  },
+  {
+    "id": "dataset_origin",
+    "question": "Is this an official Chongqing government dataset?",
+    "answer": "No. It is an independently curated dataset by Magellan Chongqing Tours, with links to official and primary sources.",
+    "source_url": "https://english.cq.gov.cn/specials/explore/",
+    "last_source_checked": "2026-11-14"
+  }
+]
