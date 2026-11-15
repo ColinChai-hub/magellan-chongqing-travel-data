@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - scripts/audit_public_site.py
+      - scripts/audit_p1.py
       - .github/workflows/public-site-audit.yml
   schedule:
     # Every Monday at 02:17 UTC (10:17 China Standard Time).
@@ -27,3 +28,5 @@ jobs:
           python-version: "3.12"
       - name: Check homepage, Open Data metadata, sitemap, llms and all raw datasets
         run: python3 scripts/audit_public_site.py
+      - name: Check P1 SEO sources, internal links, lead pages and canonical URLs
+        run: python3 scripts/audit_p1.py
