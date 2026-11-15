@@ -67,7 +67,9 @@ Source websites, trademarks, and any external content retain their own rights. V
 
 **Live Open Data page:** https://magellanchongqing.com/open-data/ — official website landing page with dataset metadata and downloads.
 
-**Indexing and monitoring:** See the [SEO/GEO measurement plan](docs/seo-geo-monitoring.md) and [Cloudflare integration/rollback notes](docs/website-integration.md). The [public-site audit](.github/workflows/public-site-audit.yml) checks the site and downloads every Monday; indexing and AI citations are not guaranteed.
+**Indexing and monitoring:** See the [SEO/GEO measurement plan](docs/seo-geo-monitoring.md) and [Cloudflare integration/rollback notes](docs/website-integration.md).
+
+**P1 site optimization release:** See the [live deployment and 60-page acceptance report](docs/p1-seo-geo-implementation-2026-11-15.md) for internal-link targets, official reference sources, B2B/B2C quotation paths, the weekly P1 audit and rollback instructions. The [public-site audit](.github/workflows/public-site-audit.yml) checks the site and downloads every Monday; indexing and AI citations are not guaranteed.
 
 
 This dataset is a public reference resource, **not a mechanism to manufacture high-authority backlinks**. If you use it on your own website, publish a useful explanatory dataset landing page and link back to the actual repository after it is public. See [docs/website-integration.md](docs/website-integration.md). Search indexing and AI citation are not guaranteed.
