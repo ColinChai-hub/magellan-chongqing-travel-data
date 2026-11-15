@@ -23,6 +23,16 @@ export default {
       headers.set('content-type','application/xml; charset=utf-8');
       return new Response(xml,{status:origin.status,headers});
     }
+    // Exact homepage route: add one visible internal discovery link without changing the origin Worker.
+    if(host==='magellanchongqing.com' && path==='/' && request.method==='GET') {
+      const origin=await fetch(request);
+      if(!origin.ok || !/text\/html/i.test(origin.headers.get('content-type')||'')) return origin;
+      return new HTMLRewriter().on('footer',{
+        element(element) {
+          element.append('<div class="fine" style="margin-top:12px"><a href="/open-data/">Open Travel Data (CSV &amp; JSON)</a> — source-linked Chongqing destination and visitor reference datasets.</div>',{html:true});
+        }
+      }).transform(origin);
+    }
     return fetch(request);
   }
 };
