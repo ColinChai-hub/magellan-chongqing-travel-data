@@ -28,14 +28,32 @@ Google indexing, rich results, AI citation and third-party backlinks are not gua
 - The source check date is editorial provenance; it is not a promise of live opening hours, prices, transport schedules or visa eligibility.
 - Verify anonymous access, sitemap inclusion and Search Console / Bing Webmaster indexing after changes. Search indexing is not guaranteed.
 
-## Current Cloudflare route scope
+## Current Cloudflare route scope (verified 2026-11-15)
 
-The `magellan-open-data` Worker is deployed only on these three route patterns:
+The dedicated `magellan-open-data` Worker is deployed at **100%** as version
+`9b2a90da-7ef2-44d8-bb0f-c7a76c5b4185`, with five narrowly scoped routes:
 
-- `magellanchongqing.com/open-data*` (serves the canonical English page)
-- `www.magellanchongqing.com/open-data*` (redirects to the canonical host)
-- `magellanchongqing.com/sitemap.xml*` (fetches the original sitemap from `magellan-tours` and adds the Open Data URL if missing)
+| Route pattern | Behavior |
+|---|---|
+| `magellanchongqing.com/open-data*` | Serve the canonical Open Data page |
+| `www.magellanchongqing.com/open-data*` | Redirect the Open Data URL to the canonical host |
+| `magellanchongqing.com/sitemap.xml*` | Forward the original sitemap from `magellan-tours` and add the new page URL if absent |
+| `magellanchongqing.com/` | Forward the original homepage and add a visible Open Data link within the footer |
+| `magellanchongqing.com/llms.txt*` | Forward the original `llms.txt` and append the Open Data and source repository links |
 
-Deployment version `c3e0afb5-9b0c-4a6f-82ba-e15fad22c7d9` was serving 100% of these routes on 2026-11-15. The existing production `magellan-tours` Worker was not overwritten. An online browser check found the page and a sitemap with 60 URLs, including `/open-data/`.
+The existing production `magellan-tours` Custom Domain Worker remains intact.
+The source for the dedicated Worker is `website/edge-worker.mjs` (it embeds `website/open-data.html`).
+**Changes to GitHub source are not automatically deployed to Cloudflare**; redeploy the dedicated Worker when the source changes and verify it before updating routes.
 
-For a rollback, first remove the three dedicated routes in Cloudflare Workers Routes; this returns requests to the original `magellan-tours` Custom Domain Worker. Do not delete or replace `magellan-tours`.
+Rollback: remove only the `magellan-open-data` route entries for the affected paths via Cloudflare Workers Routes.
+The original homepage, sitemap and `llms.txt` will then be returned by the production `magellan-tours` Worker again.
+Do not delete or replace `magellan-tours`. Removing the `open-data*` route will make the new landing page unavailable.
+
+## Public checks and monitoring
+
+- On 2026-11-15, the first scheduled site-audit workflow run completed successfully:
+  https://github.com/ColinChai-hub/magellan-chongqing-travel-data/actions/runs/43685370381
+- `.github/workflows/public-site-audit.yml` runs every Monday at 02:17 UTC and on manually dispatched requests.
+- `scripts/audit_public_site.py` checks the homepage internal link, Open Data HTML and JSON-LD, sitemap, robots, llms.txt and all five GitHub raw downloads.
+- Search indexing status and real search traffic must be checked inside Google Search Console and Bing Webmaster Tools. A successful crawl check is **not** evidence of Google/Bing indexing or AI citation.
+- See [SEO/GEO monitoring plan](seo-geo-monitoring.md) for acceptance criteria and reporting cadence.
