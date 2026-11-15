@@ -1,0 +1,29 @@
+name: Public SEO and GEO discovery audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/audit_public_site.py
+      - .github/workflows/public-site-audit.yml
+  schedule:
+    # Every Monday at 02:17 UTC (10:17 China Standard Time).
+    - cron: "17 2 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-discovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Use Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check homepage, Open Data metadata, sitemap, llms and all raw datasets
+        run: python3 scripts/audit_public_site.py
