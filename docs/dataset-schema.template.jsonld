@@ -1,8 +1,11 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
+  "@id": "https://magellanchongqing.com/open-data/#dataset",
   "name": "Magellan Chongqing Open Travel Data",
-  "description": "Independently curated, source-linked Chongqing attraction, itinerary, transport and FAQ data for international travelers.",
+  "description": "Independently curated, source-linked reference data for Chongqing attractions, sample itineraries, transport and visitor FAQs.",
+  "url": "https://magellanchongqing.com/open-data/",
+  "sameAs": "https://github.com/ColinChai-hub/magellan-chongqing-travel-data",
   "creator": {
     "@type": "Organization",
     "name": "Magellan Chongqing Tours",
@@ -11,23 +14,44 @@
   "license": "https://creativecommons.org/licenses/by/4.0/",
   "dateModified": "2026-11-14",
   "inLanguage": "en",
+  "isAccessibleForFree": true,
   "keywords": [
-    "Chongqing travel",
-    "China inbound tourism",
-    "Wulong",
-    "Dazu Rock Carvings"
+    "Chongqing travel data",
+    "Chongqing attractions",
+    "Chongqing itineraries",
+    "Chongqing transport",
+    "China inbound tourism"
   ],
-  "url": "REPLACE_WITH_PUBLIC_GITHUB_REPOSITORY_URL",
   "distribution": [
     {
       "@type": "DataDownload",
+      "name": "Attractions CSV",
       "encodingFormat": "text/csv",
-      "contentUrl": "REPLACE_WITH_PUBLIC_RAW_CSV_URL"
+      "contentUrl": "https://raw.githubusercontent.com/ColinChai-hub/magellan-chongqing-travel-data/main/data/attractions.csv"
     },
     {
       "@type": "DataDownload",
+      "name": "Attractions JSON",
       "encodingFormat": "application/json",
-      "contentUrl": "REPLACE_WITH_PUBLIC_RAW_JSON_URL"
+      "contentUrl": "https://raw.githubusercontent.com/ColinChai-hub/magellan-chongqing-travel-data/main/data/attractions.json"
+    },
+    {
+      "@type": "DataDownload",
+      "name": "Itineraries JSON",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://raw.githubusercontent.com/ColinChai-hub/magellan-chongqing-travel-data/main/data/itineraries.json"
+    },
+    {
+      "@type": "DataDownload",
+      "name": "Transport CSV",
+      "encodingFormat": "text/csv",
+      "contentUrl": "https://raw.githubusercontent.com/ColinChai-hub/magellan-chongqing-travel-data/main/data/transport.csv"
+    },
+    {
+      "@type": "DataDownload",
+      "name": "Travel FAQs JSON",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://raw.githubusercontent.com/ColinChai-hub/magellan-chongqing-travel-data/main/data/travel-faq.json"
     }
   ]
 }
