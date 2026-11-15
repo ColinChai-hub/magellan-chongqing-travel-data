@@ -142,7 +142,197 @@ const LINK_SECTIONS={
     ]
   }
 };
-const SOURCE_SECTIONS={};
+const SOURCE_SECTIONS={
+  "/destinations/ciqikou/": {
+    "items": [
+      [
+        "https://english.cq.gov.cn/specials/explore/PhotoPerfectSpots/202608/t20260810_15912574.html",
+        "Chongqing Municipal Government — Ciqikou Ancient Town",
+        "heritage area and access context"
+      ]
+    ]
+  },
+  "/destinations/dazu/": {
+    "items": [
+      [
+        "https://whc.unesco.org/en/list/912",
+        "UNESCO World Heritage Centre — Dazu Rock Carvings",
+        "inscription and heritage significance"
+      ]
+    ]
+  },
+  "/destinations/hongyadong/": {
+    "items": [
+      [
+        "https://english.cq.gov.cn/specials/explore/PhotoPerfectSpots/202608/t20260810_15912600.html",
+        "Chongqing Municipal Government — Hongyadong",
+        "location, architecture and visitor orientation"
+      ]
+    ]
+  },
+  "/destinations/jiefangbei/": {
+    "items": [
+      [
+        "https://english.cq.gov.cn/specials/explore/PhotoPerfectSpots/202608/t20260810_15912652.html",
+        "Chongqing Municipal Government — Jiefangbei",
+        "monument and central district background"
+      ]
+    ]
+  },
+  "/destinations/liziba/": {
+    "items": [
+      [
+        "https://english.cq.gov.cn/specials/explore/PhotoPerfectSpots/202608/t20260810_15912642.html",
+        "Chongqing Municipal Government — Liziba Station",
+        "monorail station and visitor viewing area"
+      ]
+    ]
+  },
+  "/destinations/wulong/": {
+    "items": [
+      [
+        "https://whc.unesco.org/en/list/1248/",
+        "UNESCO World Heritage Centre — South China Karst",
+        "Wulong heritage inscription and geology"
+      ],
+      [
+        "https://english.cq.gov.cn/aboutchongqing/culture/NaturalHeritage/202606/t20260612_15751145.html",
+        "Chongqing Municipal Government — Wulong",
+        "the main karst tourism areas"
+      ]
+    ]
+  },
+  "/destinations/yangtze-cableway/": {
+    "items": [
+      [
+        "https://english.cq.gov.cn/specials/explore/PhotoPerfectSpots/202608/t20260810_15912630.html",
+        "Chongqing Municipal Government — Yangtze Cableway",
+        "location and historical transport context; recheck operating hours"
+      ]
+    ]
+  },
+  "/guides/best-time-to-visit-chongqing/": {
+    "items": [
+      [
+        "https://www.weather.com.cn/html/cityintro_en/101040100.shtml",
+        "China Weather / Public Weather Service Center — Chongqing climate",
+        "long-term seasonal climate patterns, not a live weather forecast"
+      ]
+    ]
+  },
+  "/guides/chongqing-itinerary-3-days/": {
+    "items": [
+      [
+        "https://english.cq.gov.cn/specials/explore/PhotoPerfectSpots/202608/t20260810_15912574.html",
+        "Chongqing Municipal Government — Ciqikou",
+        "city heritage stop"
+      ],
+      [
+        "https://whc.unesco.org/en/list/1248/",
+        "UNESCO World Heritage Centre — South China Karst",
+        "Wulong nature-trip option"
+      ],
+      [
+        "https://whc.unesco.org/en/list/912",
+        "UNESCO World Heritage Centre — Dazu Rock Carvings",
+        "Dazu culture-trip option"
+      ]
+    ]
+  },
+  "/guides/chongqing-travel-guide/": {
+    "items": [
+      [
+        "https://english.cq.gov.cn/specials/explore/",
+        "Chongqing Municipal Government — Explore",
+        "official destination and attraction directory"
+      ],
+      [
+        "https://english.cq.gov.cn/services/entryandexit/",
+        "Chongqing Municipal Government — Entry & Exit",
+        "official immigration information; check policy before travel"
+      ]
+    ]
+  },
+  "/guides/dazu-rock-carvings-guide/": {
+    "items": [
+      [
+        "https://whc.unesco.org/en/list/912",
+        "UNESCO World Heritage Centre — Dazu Rock Carvings",
+        "date range and historical importance of carved sites"
+      ]
+    ]
+  },
+  "/guides/how-to-get-around-chongqing/": {
+    "items": [
+      [
+        "https://english.cq.gov.cn/specials/explore/PhotoPerfectSpots/202608/t20260810_15912642.html",
+        "Chongqing Municipal Government — Liziba Station",
+        "Line 2 monorail station context"
+      ],
+      [
+        "https://english.cq.gov.cn/specials/explore/PhotoPerfectSpots/202608/t20260810_15912630.html",
+        "Chongqing Municipal Government — Yangtze Cableway",
+        "cross-river transport landmark; verify live service notices"
+      ]
+    ]
+  },
+  "/guides/things-to-do-in-chongqing/": {
+    "items": [
+      [
+        "https://english.cq.gov.cn/specials/explore/",
+        "Chongqing Municipal Government — Explore",
+        "official city sights directory"
+      ],
+      [
+        "https://whc.unesco.org/en/list/912",
+        "UNESCO World Heritage Centre — Dazu",
+        "heritage visit option"
+      ],
+      [
+        "https://whc.unesco.org/en/list/1248/",
+        "UNESCO World Heritage Centre — Wulong",
+        "nature visit option"
+      ]
+    ]
+  },
+  "/guides/what-to-eat-in-chongqing/": {
+    "items": [
+      [
+        "https://english.cq.gov.cn/specials/Eat/DiscoverLocalFood/202608/t20260818_15947625.html",
+        "Chongqing Municipal Government — Chongqing hot pot",
+        "culinary background and local food culture"
+      ]
+    ]
+  },
+  "/guides/wulong-travel-guide/": {
+    "items": [
+      [
+        "https://whc.unesco.org/en/list/1248/",
+        "UNESCO World Heritage Centre — South China Karst",
+        "Wulong landscape and world heritage inscription"
+      ],
+      [
+        "https://english.cq.gov.cn/specials/explore/ARatedTouristAttractions/202608/t20260818_15948246.html",
+        "Chongqing Municipal Government — Wulong tourism area",
+        "Three Natural Bridges, Fairy Mountain and Furong Cave"
+      ]
+    ]
+  },
+  "/guides/chongqing-photo-spots/": {
+    "items": [
+      [
+        "https://english.cq.gov.cn/specials/explore/PhotoPerfectSpots/202608/t20260810_15912642.html",
+        "Chongqing Municipal Government — Liziba viewpoint",
+        "photo viewing platform"
+      ],
+      [
+        "https://english.cq.gov.cn/specials/explore/PhotoPerfectSpots/202608/t20260810_15912600.html",
+        "Chongqing Municipal Government — Hongyadong",
+        "cliffside architecture and location"
+      ]
+    ]
+  }
+};
 export default {
   async fetch(request) {
     const url=new URL(request.url);
