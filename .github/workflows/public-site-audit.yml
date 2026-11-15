@@ -6,6 +6,15 @@ on:
     paths:
       - scripts/audit_public_site.py
       - scripts/audit_p1.py
+      - scripts/audit_p2.py
+      - website/p2-image-helpers.mjs
+      - website/p2-metadata-helpers.mjs
+      - website/p2-images-worker.mjs
+      - website/edge-worker.mjs
+      - website/p1-content-worker.mjs
+      - website/visa-policy-2026-worker.mjs
+      - website/open-data.html
+      - docs/dataset-schema.template.jsonld
       - .github/workflows/public-site-audit.yml
   schedule:
     # Every Monday at 02:17 UTC (10:17 China Standard Time).
@@ -30,3 +39,5 @@ jobs:
         run: python3 scripts/audit_public_site.py
       - name: Check P1 SEO sources, internal links, lead pages and canonical URLs
         run: python3 scripts/audit_p1.py
+      - name: Check all pages, image dimensions, responsive heroes and publisher graph
+        run: python3 scripts/audit_p2.py
