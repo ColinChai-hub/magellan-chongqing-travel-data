@@ -34,3 +34,21 @@ jobs:
           assert not any('REPLACE_WITH_' in str(x) for x in d.values())
           print('Dataset JSON-LD: OK')
           PY
+      - name: Check website HTML and Worker source synchronization
+        run: |
+          python3 - <<'PY'
+          import json, re
+          from pathlib import Path
+          html = Path('website/open-data.html').read_text(encoding='utf-8')
+          worker = Path('website/edge-worker.mjs').read_text(encoding='utf-8')
+          line = next(x for x in worker.splitlines() if x.startswith('const PAGE='))
+          assert json.loads(line[len('const PAGE='):-1]) == html, 'Worker page does not match website HTML'
+          match = re.search(r'<script type="application/ld\+json">\s*(.*?)\s*</script>', html, re.S)
+          assert match, 'No JSON-LD found'
+          live = json.loads(match.group(1))['@graph'][0]
+          template = json.loads(Path('docs/dataset-schema.template.jsonld').read_text())
+          assert live['url'] == template['url']
+          assert live['distribution'] == template['distribution']
+          assert html.count('<h1>') == 1
+          print('Website and Worker source: OK')
+          PY
