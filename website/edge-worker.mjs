@@ -16,9 +16,9 @@ export default {
       const origin=await fetch(request);
       if(request.method!=='GET'||!origin.ok) return origin;
       const content=await origin.text();
-      if(!content.includes('<urlset')||!/<\\/urlset\\s*>/i.test(content)) return new Response(content,{status:origin.status,headers:stripBodyHeaders(origin.headers)});
+      if(!content.includes('<urlset')||!content.includes('</urlset>')) return new Response(content,{status:origin.status,headers:stripBodyHeaders(origin.headers)});
       const entry='<url><loc>'+CANONICAL+'</loc><lastmod>2026-11-15</lastmod></url>';
-      const xml=content.includes('<loc>'+CANONICAL+'</loc>')?content:content.replace(/<\\/urlset\\s*>/i,entry+'</urlset>');
+      const xml=content.includes('<loc>'+CANONICAL+'</loc>')?content:content.replace('</urlset>',entry+'</urlset>');
       const headers=stripBodyHeaders(origin.headers);
       headers.set('content-type','application/xml; charset=utf-8');
       return new Response(xml,{status:origin.status,headers});
