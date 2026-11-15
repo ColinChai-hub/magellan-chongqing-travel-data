@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Chongqing Open Travel Data | Attractions, Itineraries &amp; Transport | Magellan</title>
+<title>Chongqing Open Travel Data (CSV &amp; JSON) | Magellan</title>
 <meta name="description" content="Download free, source-linked Chongqing travel reference data: 15 attractions, 5 sample itineraries, 7 transport entries and 12 FAQs. CSV and JSON, CC BY 4.0.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://magellanchongqing.com/open-data/">
@@ -26,26 +26,79 @@
       "description": "Independently curated, source-linked reference data for Chongqing attractions, sample itineraries, transport and visitor FAQs.",
       "url": "https://magellanchongqing.com/open-data/",
       "sameAs": "https://github.com/ColinChai-hub/magellan-chongqing-travel-data",
-      "creator": {"@type": "Organization", "name": "Magellan Chongqing Tours", "url": "https://magellanchongqing.com/"},
+      "creator": {
+        "@type": "TravelAgency",
+        "@id": "https://magellanchongqing.com/#organization",
+        "name": "Magellan Chongqing Tours",
+        "url": "https://magellanchongqing.com/"
+      },
       "license": "https://creativecommons.org/licenses/by/4.0/",
       "dateModified": "2026-11-14",
       "inLanguage": "en",
       "isAccessibleForFree": true,
-      "keywords": ["Chongqing travel data", "Chongqing attractions", "Chongqing itineraries", "Chongqing transport", "China inbound tourism"],
+      "keywords": [
+        "Chongqing travel data",
+        "Chongqing attractions",
+        "Chongqing itineraries",
+        "Chongqing transport",
+        "China inbound tourism"
+      ],
       "distribution": [
-        {"@type":"DataDownload","name":"Attractions CSV","encodingFormat":"text/csv","contentUrl":"https://raw.githubusercontent.com/ColinChai-hub/magellan-chongqing-travel-data/main/data/attractions.csv"},
-        {"@type":"DataDownload","name":"Attractions JSON","encodingFormat":"application/json","contentUrl":"https://raw.githubusercontent.com/ColinChai-hub/magellan-chongqing-travel-data/main/data/attractions.json"},
-        {"@type":"DataDownload","name":"Itineraries JSON","encodingFormat":"application/json","contentUrl":"https://raw.githubusercontent.com/ColinChai-hub/magellan-chongqing-travel-data/main/data/itineraries.json"},
-        {"@type":"DataDownload","name":"Transport CSV","encodingFormat":"text/csv","contentUrl":"https://raw.githubusercontent.com/ColinChai-hub/magellan-chongqing-travel-data/main/data/transport.csv"},
-        {"@type":"DataDownload","name":"Travel FAQs JSON","encodingFormat":"application/json","contentUrl":"https://raw.githubusercontent.com/ColinChai-hub/magellan-chongqing-travel-data/main/data/travel-faq.json"}
-      ]
+        {
+          "@type": "DataDownload",
+          "name": "Attractions CSV",
+          "encodingFormat": "text/csv",
+          "contentUrl": "https://raw.githubusercontent.com/ColinChai-hub/magellan-chongqing-travel-data/main/data/attractions.csv"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Attractions JSON",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://raw.githubusercontent.com/ColinChai-hub/magellan-chongqing-travel-data/main/data/attractions.json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Itineraries JSON",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://raw.githubusercontent.com/ColinChai-hub/magellan-chongqing-travel-data/main/data/itineraries.json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Transport CSV",
+          "encodingFormat": "text/csv",
+          "contentUrl": "https://raw.githubusercontent.com/ColinChai-hub/magellan-chongqing-travel-data/main/data/transport.csv"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Travel FAQs JSON",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://raw.githubusercontent.com/ColinChai-hub/magellan-chongqing-travel-data/main/data/travel-faq.json"
+        }
+      ],
+      "publisher": {
+        "@id": "https://magellanchongqing.com/#organization"
+      },
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Chongqing, China"
+      }
     },
     {
       "@type": "BreadcrumbList",
       "@id": "https://magellanchongqing.com/open-data/#breadcrumb",
       "itemListElement": [
-        {"@type":"ListItem","position":1,"name":"Home","item":"https://magellanchongqing.com/"},
-        {"@type":"ListItem","position":2,"name":"Open Travel Data","item":"https://magellanchongqing.com/open-data/"}
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://magellanchongqing.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Open Travel Data",
+          "item": "https://magellanchongqing.com/open-data/"
+        }
       ]
     }
   ]
