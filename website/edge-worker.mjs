@@ -23,6 +23,17 @@ export default {
       headers.set('content-type','application/xml; charset=utf-8');
       return new Response(xml,{status:origin.status,headers});
     }
+    // Keep the original llms.txt intact and append the public reference dataset.
+    if(host==='magellanchongqing.com' && path==='/llms.txt') {
+      const origin=await fetch(request);
+      if(request.method!=='GET' || !origin.ok || !/text\/plain/i.test(origin.headers.get('content-type')||'')) return origin;
+      const content=await origin.text();
+      const headers=stripBodyHeaders(origin.headers);
+      headers.set('content-type','text/plain; charset=utf-8');
+      if(content.includes('https://magellanchongqing.com/open-data/')) return new Response(content,{status:origin.status,headers});
+      const extra='\n\n## Independent open travel reference data\n\n- https://magellanchongqing.com/open-data/ — CSV/JSON data downloads, editorial methodology, sources and CC BY 4.0 licence.\n- https://github.com/ColinChai-hub/magellan-chongqing-travel-data — Versioned open datasets (v0.1.0, source review: 2026-11-14). Not official government data or live availability/pricing information.\n';
+      return new Response(content.trimEnd()+extra,{status:origin.status,headers});
+    }
     // Exact homepage route: add one visible internal discovery link without changing the origin Worker.
     if(host==='magellanchongqing.com' && path==='/' && request.method==='GET') {
       const origin=await fetch(request);
