@@ -6,7 +6,7 @@ Repository: https://github.com/ColinChai-hub/magellan-chongqing-travel-data
 
 ## Status
 
-**Technical changes deployed and regression-checked.** Search performance and AI citations are not yet measured. The homepage mobile LCP remains above the recommended 2.5-second threshold. Authentic guest testimonials, individual guide credentials and a verified image-logo URL were not provided; none were invented.
+**Technical changes deployed and regression-checked.** Search performance and AI citations are not yet measured. Follow-up testing after removing a redundant English-homepage hero preload reached 1.978–1.991 seconds mobile LCP across three us-west1 Lighthouse runs, below the 2.5-second laboratory target. Field LCP/INP/CLS is still unverified. Authentic guest testimonials, individual guide credentials and a verified image-logo URL were not provided; none were invented.
 
 ## 1. Asset dimensions and responsive delivery
 
@@ -87,9 +87,37 @@ All sources are versioned in GitHub; Cloudflare Worker uploads require separate 
 
 To roll back P2, remove only the eight magellan-p2-images route assignments, restore the pre-P2 versions of the existing three affected Worker source files from Git history and redeploy those specific Workers. **Do not replace magellan-tours or delete P0/P1 routes.** Verify homepage, visa content, internal links, WhatsApp event attribution and canonical URLs after any rollback.
 
+## 6A. Homepage LCP duplicate-request fix — 2026-11-15 follow-up
+
+**Confirmed cause in simulated mobile browsing:** The English home page's inserted responsive hero preload caused two requests at CSS viewport width 412px and device pixel ratio (DPR) 1: `chaotianmen-m.jpg` (~133 KB) plus the full `chaotianmen.jpg` (~408 KB). The hero itself was already discoverable in initial HTML with `fetchpriority=high`. A redundant preload was therefore not required.
+
+**Change:** Removed only the English home-page responsive `<link rel=preload as=image>` from `website/edge-worker.mjs`, while retaining the responsive image `srcset`, `sizes`, `loading=eager`, `fetchpriority=high`, Open Data internal footer link, existing canonical and GA4 setup. Updated source commit: [793cde7](https://github.com/ColinChai-hub/magellan-chongqing-travel-data/commit/793cde793856b116697c80b8bd74c2de017e68eb).
+
+**Network verification:**
+- 412px/DPR 1: one mobile hero JPEG request, `initiatorType=img`, approx. 133 KB; no image preload link.
+- 412px/DPR 2.625: one original hero JPEG request, approx. 408 KB; no second hero fetch; responsive sharpness retained.
+- Simplified Chinese homepage at 412px/DPR 1: one mobile JPEG request; its existing preload was therefore left unchanged. A separate Traditional Chinese browser test was rate-limited and was not altered.
+
+**Cloudflare Observatory Lighthouse tests** (us-west1, 2026-11-15):
+
+| Stage | Test ID | Mobile score | Mobile LCP | CLS |
+| --- | --- | ---: | ---: | ---: |
+| Earlier P2 release (with redundant preload) | ce20e315-0dbf-4736-a24a-9012eb5ead4d | 87 | 3.925 s | 0 |
+| Preload removed, run 1 | d1a3a500-e849-4cab-9a9f-563cef756e9d | 99 | 1.991 s | 0 |
+| Preload removed, run 2 | af50fa8d-e142-47a4-b115-a83b2d617e0e | 99 | 1.978 s | 0 |
+| Preload removed, run 3 | 2877020c-71f9-48c9-b5a0-a86b8575c255 | 99 | 1.991 s | 0 |
+
+**Scope of inference:** Repeated same-region laboratory measurements substantiate the fix but are not proof that globally distributed real-user p75 will meet 2.5 seconds. The website currently exposes Cloudflare RUM, but its real-user metric distributions were not retrieved.
+
+**Regression:** A fresh sitemap-based crawl confirmed 60/60 HTTP 200, correct self-canonical, one H1, no detected `noindex`, no missing known JPEG width/height, all hero images still high priority, valid JSON-LD and no P0/P1 content regressions. `scripts/audit_p2.py` now fails if the English homepage's redundant hero preload returns. Latest passing GitHub Actions workflow: [run 43714270081](https://github.com/ColinChai-hub/magellan-chongqing-travel-data/actions/runs/43714270081).
+
+**Rollback:** Restore `website/edge-worker.mjs` from the commit immediately before 793cde7 and redeploy only the existing `magellan-open-data` Worker. That would restore the redundant preload and is not recommended unless regression symptoms appear. Do not alter `magellan-tours` or delete P0/P1 routes.
+
+---
+
 ## 7. Still required
 
-1. Homepage mobile LCP: around 3.9 seconds in lab tests, not yet below 2.5 seconds. Review Lighthouse image-delivery diagnostics and further compression (without silently reducing photo quality), then repeat stable tests.
+1. Homepage mobile LCP: laboratory goal now met (three tests: 1.991 / 1.978 / 1.991 seconds). Maintain the improvement with regression tests; monitor the real-user p75 before treating the overall Core Web Vitals goal as achieved.
 2. Real-user LCP/INP/CLS p75: Cloudflare RUM is on but p75 values still need retrieval and segmenting by device and location.
 3. Authentic client feedback, guide biographies and company-logo source: add only after documentary or primary evidence is provided.
 4. GSC/Bing search queries, indexing, clicks, qualified leads and real AI citations: measure; none should be guessed.
