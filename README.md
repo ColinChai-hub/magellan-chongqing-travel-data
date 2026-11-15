@@ -65,6 +65,9 @@ Source websites, trademarks, and any external content retain their own rights. V
 
 ## For the website and SEO
 
+**Live Open Data page:** https://magellanchongqing.com/open-data/ — official website landing page with dataset metadata and downloads.
+
+
 This dataset is a public reference resource, **not a mechanism to manufacture high-authority backlinks**. If you use it on your own website, publish a useful explanatory dataset landing page and link back to the actual repository after it is public. See [docs/website-integration.md](docs/website-integration.md). Search indexing and AI citation are not guaranteed.
 
 ## Contact
